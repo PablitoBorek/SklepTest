@@ -1,13 +1,15 @@
-package Pages;
+package SklepTest.Pages;
 
+import SklepTest.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasePage {
+
+public abstract class BasePage {
     public final WebDriver driver;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
+        this.driver = DriverManager.driver;
         PageFactory.initElements(this.driver, this);
     }
 }
