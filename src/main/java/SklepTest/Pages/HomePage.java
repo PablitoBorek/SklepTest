@@ -1,6 +1,5 @@
 package SklepTest.Pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -14,9 +13,16 @@ public class HomePage extends BasePage{
     @FindBy(how = How.CSS, using = ".site-title-description > .site-title")
     WebElement homePageName;
 
+    @FindBy(how = How.CSS, using = ".top-account")
+    WebElement accountButton;
+
     public void openHomePage() {
         driver.get(HOMEPAGE_URL);
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(homePageName));
+    }
+
+    public void clickAccountButton() {
+        accountButton.click();
     }
 
     public String getHomepageName() {

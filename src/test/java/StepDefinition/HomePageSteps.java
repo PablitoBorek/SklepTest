@@ -3,16 +3,12 @@ package StepDefinition;
 import SklepTest.Pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebElement;
 
-public class HomePageSteps extends BaseComponent{
+public class HomePageSteps {
 
     HomePage homePage = new HomePage();
-
-    public HomePageSteps(WebElement root) {
-        super(root);
-    }
 
     @Given("Browser is open")
     public void browser_is_open() {
@@ -24,4 +20,10 @@ public class HomePageSteps extends BaseComponent{
         String homePageName = homePage.getHomepageName();
         Assertions.assertEquals("Generic Shop", homePageName);
     }
+
+    @When("I click account Button")
+    public void iClickAccountButton() {
+        homePage.clickAccountButton();
+    }
+
 }
